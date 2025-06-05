@@ -1,0 +1,35 @@
+{
+    "pt": {
+      "title": "Adote um Amigo",
+      "subtitle": "Todos merecem um lar amoroso. Conheça nossos cães disponíveis para adoção.",
+      "contrast": "Modo Alto Contraste",
+      "dog1": {
+        "name": "Max steel",
+        "desc": "Max steel é brincalhão, tem 2 anos e adora correr no parque. Ideal para famílias com crianças.",
+        "button": "Quero Adotar"
+      },
+      "dog2": {
+        "name": "Luna snow",
+        "desc": "Luna snow é calma e muito carinhosa. Tem 4 anos e se dá bem com outros animais.",
+        "button": "Quero Adotar"
+      },
+      "footer": "Entre em contato: "
+    },
+    "en": {
+      "title": "Adopt a Friend",
+      "subtitle": "Everyone deserves a loving home. Meet our dogs available for adoption.",
+      "contrast": "High Contrast Mode",
+      "dog1": {
+        "name": "Max steel",
+        "desc": "Max steel is playful, 2 years old and loves running in the park. Perfect for families with children.",
+        "button": "Adopt Me"
+      },
+      "dog2": {
+        "name": "Luna snow",
+        "desc": "Luna snow is calm and very affectionate. She's 4 years old and gets along well with other animals.",
+        "button": "Adopt Me"
+      },
+      "footer": "Contact us: "
+    }
+  }
+  

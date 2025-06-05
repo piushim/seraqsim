@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adoção de Cães</title>
+  <style>
+    :root {
+      --bg-color: #000;
+      --text-color: #fff;
+      --highlight-color: #ffcc00;
+      --button-bg: #00ffff;
+      --button-text: #000;
+      --button-hover-bg: #008080;
+      --button-hover-text: #fff;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, main, footer {
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    header {
+      background-color: var(--highlight-color);
+      color: #000;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    h1, h2 {
+      font-size: 1.5em;
+    }
+
+    a {
+      color: var(--button-bg);
+      text-decoration: underline;
+    }
+
+    .dog {
+      background-color: #222;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+
+    .dog img {
+      max-width: 100%;
+      border: 2px solid #fff;
+    }
+
+    .dog p {
+      font-size: 1.1em;
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--highlight-color);
+      color: #000;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    button {
+      font-size: 1em;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: var(--button-hover-bg);
+      color: var(--button-hover-text);
+      outline: 3px solid #fff;
+    }
+
+    .contrast-toggle, .language-toggle {
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .language-buttons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .language-buttons button {
+      background: none;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .language-buttons img {
+      width: 24px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="language-buttons">
+      <button onclick="setLanguage('pt')" aria-label="Português"><img src="https://flagcdn.com/w40/br.png" alt="Bandeira do Brasil"></button>
+      <button onclick="setLanguage('en')" aria-label="English"><img src="https://flagcdn.com/w40/us.png" alt="Flag of the United States"></button>
+    </div>
+    <h1 id="title">Adote um Amigo</h1>
+    <p id="subtitle">Todos merecem um lar amoroso. Conheça nossos cães disponíveis para adoção.</p>
+    <button class="contrast-toggle" onclick="toggleContrast()" id="contrast-button">Modo Alto Contraste</button>
+  </header>
+
+  <main role="main">
+    <section class="dog">
+      <h2 id="dog1-name">Max steel</h2>
+      <img src="data:image/jpeg;base64,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" alt="Cão chamado Max, pelagem marrom e branca." id="dog1-img" />
+      <p id="dog1-desc">Max steel é brincalhão, tem 2 anos e adora correr no parque. Ideal para famílias com crianças.</p>
+      <button id="dog1-button">Quero Adotar</button>
+    </section>
+
+    <section class="dog">
+      <h2 id="dog2-name">Luna snow</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQFpRAIfI-opX5kUOg0C7C91GoTH3sGhkaUw&s" alt="Cachorra chamada Luna, pelagem preta." id="dog2-img" />
+      <p id="dog2-desc"> Luna snow é calma e muito carinhosa. Tem 4 anos e se dá bem com outros animais.</p>
+      <button id="dog2-button">Quero Adotar</button>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p id="footer-text">Entre em contato: <a href="mailto:contato@adocaodecaes.org">joaovictorpiu@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function toggleContrast() {
+      const root = document.documentElement;
+      const currentBg = getComputedStyle(root).getPropertyValue('--bg-color').trim();
+      if (currentBg === '#000') {
+        root.style.setProperty('--bg-color', '#fff');
+        root.style.setProperty('--text-color', '#000');
+        root.style.setProperty('--highlight-color', '#000');
+        root.style.setProperty('--button-bg', '#000');
+        root.style.setProperty('--button-text', '#fff');
+        root.style.setProperty('--button-hover-bg', '#333');
+        root.style.setProperty('--button-hover-text', '#fff');
+      } else {
+        root.style.setProperty('--bg-color', '#000');
+        root.style.setProperty('--text-color', '#fff');
+        root.style.setProperty('--highlight-color', '#ffcc00');
+        root.style.setProperty('--button-bg', '#00ffff');
+        root.style.setProperty('--button-text', '#000');
+        root.style.setProperty('--button-hover-bg', '#008080');
+        root.style.setProperty('--button-hover-text', '#fff');
+      }
+    }
+
+    async function setLanguage(lang) {
+      const res = await fetch('translations.json');
+      const translations = await res.json();
+      const t = translations[lang];
+
+      document.getElementById('title').innerText = t.title;
+      document.getElementById('subtitle').innerText = t.subtitle;
+      document.getElementById('contrast-button').innerText = t.contrast;
+
+      document.getElementById('dog1-name').innerText = t.dog1.name;
+      document.getElementById('dog1-desc').innerText = t.dog1.desc;
+      document.getElementById('dog1-button').innerText = t.dog1.button;
+
+      document.getElementById('dog2-name').innerText = t.dog2.name;
+      document.getElementById('dog2-desc').innerText = t.dog2.desc;
+      document.getElementById('dog2-button').innerText = t.dog2.button;
+
+      document.getElementById('footer-text').innerHTML = `${t.footer}<a href="mailto:contato@adocaodecaes.org">contato@adocaodecaes.org</a>`;
+    }
+  </script>
+</body>
+</html>
